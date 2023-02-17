@@ -16,7 +16,7 @@ fun roman2arabic(romanToConvert: String): Int {
         "M" to 1000,
     )
 
-    for (current in romanToConvert) {
+    for (current in romanToConvert.reversed()) {
         val currentChar = "$current"
         var value: Int = romanArabicMap[currentChar]!!
         if (value < previous) {
