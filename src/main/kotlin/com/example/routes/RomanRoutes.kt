@@ -18,8 +18,11 @@ fun Route.rootRouting() {
 
 
 fun Route.romanRouting() {
-    route("/roman/{num?}") {
-        get("{num!!}") {
+    route("/roman") {
+        get {
+            call.respondText("Specify roman number to convert", status = HttpStatusCode.OK)
+        }
+        get("{num?}") {
             val num = call.parameters["num"] ?: return@get call.respondText(
                 "Missing roman number to convert",
                 status = HttpStatusCode.BadRequest
