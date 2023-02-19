@@ -10,8 +10,7 @@ import io.ktor.server.response.*
 fun Route.rootRouting() {
     route("/") {
         get {
-            val arabic: Int = roman2arabic("MCMLXXXIII")
-            call.respondText("Welcome to roman to arabic converter $arabic!", status = HttpStatusCode.OK)
+            call.respondText("Welcome to roman to arabic converter!", status = HttpStatusCode.OK)
         }
     }
 }
