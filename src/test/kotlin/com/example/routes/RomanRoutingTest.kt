@@ -29,10 +29,24 @@ class RomanRoutingTest {
         application {
             module()
         }
-        client.get("/roman/I").apply {
-            val response = client.get("/roman/I")
-            assertEquals(HttpStatusCode.OK, response.status)
-            assertEquals("1", response.bodyAsText())
+        val parameters = listOf(
+            "I" to "1",
+            "II" to "2",
+            "III" to "3",
+            "V" to "5",
+            "X" to "10",
+            "XV" to "15",
+            "VI" to "6",
+            "IV" to "4",
+            "MCMLXXXV" to "1985",
+        )
+        parameters.forEach { (romanNum, expected) ->
+            client.get("/roman/$romanNum").apply {
+                val response = client.get("/roman/$romanNum")
+                assertEquals(HttpStatusCode.OK, response.status)
+                assertEquals(expected, response.bodyAsText())
+
+            }
 
         }
     }
