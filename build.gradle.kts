@@ -6,6 +6,7 @@ plugins {
     kotlin("jvm") version "1.8.10"
     id("io.ktor.plugin") version "2.2.3"
     id("org.jetbrains.kotlin.plugin.serialization") version "1.8.10"
+    id("info.solidsoft.pitest") version "1.9.0"
 }
 
 group = "com.example"
